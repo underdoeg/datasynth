@@ -71,6 +71,7 @@ void Core::draw()
     BOOST_FOREACH(NodePtr node, nodes)
     {
         if(!node->bIsInvalid)
+        if(!node->bIsInvalid)
         {
             node->basedraw();
             node->draw();
@@ -195,10 +196,6 @@ void Core::keyPressed(int key, ofxFenster* win)
 //--------------------------------------------------------------
 void Core::keyReleased(int key, ofxFenster* win)
 {
-    if (key == ' ')
-    {
-
-    }
 }
 //--------------------------------------------------------------
 void Core::mouseMoved(int x, int y, ofxFenster* win)

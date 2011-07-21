@@ -17,7 +17,7 @@ FileChooser::FileChooser(float* _x, float* _y, string _name, string* _value, boo
     bFileIsSet = false;
     bShow = false;
 
-    loadEntries("data/");
+    loadEntries(".");
 
     acceptedFileExtension = "csv";
 }
@@ -30,21 +30,22 @@ FileChooser::~FileChooser()
 
 void FileChooser::loadEntries(string _dir)
 {
-    dir.listDir(_dir);
-	dir.sort();
 
+    dir.listDir(".");
+	dir.sort();
+    cout << dir.size() << endl;
     ofFile testfile;
 	for(unsigned int i = 0; i < dir.size(); i++)
     {
         fileentry temp;
         temp.name = dir.getName(i);
         testfile.open(dir.getPath(i));
-        temp.isFile = testfile.isFile();
-        if(temp.isFile)
-        {
+        //temp.isFile = testfile.isFile();
+        //if(temp.isFile)
+        //{
             temp.type = testfile.getExtension();
             temp.path = testfile.path();
-        }
+        //}
         testfile.close();
         temp.box.width = 200;
         temp.box.height = 15;

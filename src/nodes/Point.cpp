@@ -1,7 +1,7 @@
 #include "Point.h"
 using namespace ds;
 
-Point::Point(float _x, float _y, string _name)
+ds::Point::Point(float _x, float _y, string _name)
 {
     x = _x;
     y = _y;
@@ -17,17 +17,17 @@ Point::Point(float _x, float _y, string _name)
     ofAddListener(ofxFensterManager::get()->getWindowById(winId)->events.draw, this, &Point::drawPoints);
 }
 
-Point::~Point()
+ds::Point::~Point()
 {
     ofRemoveListener(ofxFensterManager::get()->getWindowById(winId)->events.draw, this, &Point::drawPoints);
     input.clear();
 }
 
-void Point::process()
+void ds::Point::process()
 {
 }
 
-void Point::drawPoints(ofEventArgs & args)
+void ds::Point::drawPoints(ofEventArgs & args)
 {
     int size0 = input[0]->value->data.size();
     int size1 = input[1]->value->data.size();

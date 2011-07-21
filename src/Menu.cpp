@@ -30,7 +30,7 @@ Menu::Menu()
                 createId = temp.id;
             }
             parents.push_back(id);
-            temp.parent = parents[parents.size() - 2];
+            temp.parent = 0;
             temp.level = XML.getPushLevel() - 1;
             temp.box.width = 100;
             temp.box.height = 15;
@@ -160,6 +160,7 @@ void Menu::mouseReleased(ofMouseEventArgs & args)
         //toggle
         if(args.button == 2)
         {
+
             x = args.x;
             y = args.y;
             int level = 0;
@@ -170,7 +171,6 @@ void Menu::mouseReleased(ofMouseEventArgs & args)
                 //move only the entries of the root level to the mouse pos and make them visible
                 if(entries[i].parent == 0)
                 {
-
                     entries[i].box.x = x;
                     entries[i].box.y = y + (level * (entries[i].box.height +1));
                     entries[i].bIsVisible = true;
